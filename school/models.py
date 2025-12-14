@@ -81,3 +81,15 @@ class Review(models.Model):
         return f"{self.user.username} - {self.program.title}"
     
       
+
+class Testimonial(models.Model):
+    client_name = models.CharField(max_length=100)
+    profession = models.CharField(max_length=100)
+    image = models.ImageField(upload_to = "testimonial/")
+    comment = models.TextField()
+    rating = models.IntegerField(default=5)
+
+    def __str__(self):
+        return f"{self.client_name} ({self.rating} )"
+        
+    
