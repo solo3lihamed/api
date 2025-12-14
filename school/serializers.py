@@ -12,7 +12,7 @@ class TeatcherSerializer(serializers.ModelSerializer):
 
 
 class ProgramSerializer(serializers.ModelSerializer):
-    teacher = TeatcherSerializers(read_only=True)
+    teacher = TeatcherSerializer(read_only=True)
 
     class Meta:
         model = Program
@@ -44,4 +44,4 @@ class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
         fields = ["id","user","grade_level","grades"]
-        
+
