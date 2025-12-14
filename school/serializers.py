@@ -11,3 +11,9 @@ class TeatcherSerializers(serializers.ModelSerializer):
 
 
 
+class ProgramSerializers(serializers.ModelSerializer):
+    teacher = TeatcherSerializers(read_only=True)
+
+    class Meta:
+        model = Program
+        fields = "__all__"
