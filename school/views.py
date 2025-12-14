@@ -31,3 +31,24 @@ class EventViewSet(viewsets.ModelViewSet):
 class TeacherViewSet(viewsets.ModelViewSet):
     queryset = Teacher.objects.all()
     serializer_class = TeatcherSerializer
+
+
+
+class TestimonialViewSet(viewsets.ModelViewSet):
+    queryset=Testimonial.objects.all().order_by("-created_at")
+    serializer_class=TestimonialSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+
+class StudentViewSet(viewsets.ModelViewSet):
+    queryset=Student.objects.all()
+    serializer_class=StudentSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+
+class GradeViewSet(viewsets.ModelViewSet):
+    queryset=Grade.objects.all()
+    serializer_class=GradeSerializer
+    permission_classes = [permissions.IsAuthenticated]
