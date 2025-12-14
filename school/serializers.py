@@ -17,3 +17,11 @@ class ProgramSerializers(serializers.ModelSerializer):
     class Meta:
         model = Program
         fields = "__all__"
+
+
+class EventSerializers(serializers.ModelSerializer):
+    class Meta:
+        model =Event
+        fields = "__all__"
+
+
