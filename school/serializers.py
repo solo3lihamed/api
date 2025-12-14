@@ -4,14 +4,14 @@ from .models import Program , Event , Teacher , Grade , Review,Testimonial,Stude
 
 
 
-class TeatcherSerializers(serializers.ModelSerializer):
+class TeatcherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
         fields = "__all__"
 
 
 
-class ProgramSerializers(serializers.ModelSerializer):
+class ProgramSerializer(serializers.ModelSerializer):
     teacher = TeatcherSerializers(read_only=True)
 
     class Meta:
@@ -19,19 +19,19 @@ class ProgramSerializers(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class EventSerializers(serializers.ModelSerializer):
+class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model =Event
         fields = "__all__"
 
 
-class TestimonialSerializers(serializers.ModelSerializer):
+class TestimonialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimonial
         fields = "__all__"
 
 
-class GradeSerializers(serializers.ModelSerializer):
+class GradeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Grade
         fields = "__all__"
