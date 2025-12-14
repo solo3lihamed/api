@@ -29,4 +29,9 @@ class TestimonialSerializers(serializers.ModelSerializer):
     class Meta:
         model = Testimonial
         fields = "__all__"
-        
+
+
+class GradeSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Grade
+        fields = "__all__"
