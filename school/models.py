@@ -4,6 +4,21 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
+
+
+
+
+
+class Teacher(models.Model):
+    name = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="teacher/")
+
+    def __str__(self):
+        return self.name
+    
+
+
 class Program(models.Model):
     title = models.CharField(max_length=300)
     description = models.TextField()
@@ -12,6 +27,7 @@ class Program(models.Model):
     seats = models.IntegerField(default=30)
     lessons = models.IntegerField(default=40)
     hours = models.IntegerField(default=60)
+    teacher = models.ForeignKey(Teacher,on_delete=models.SET_NULL,null=True,blank=True)
 
     def __str__(self):
         return self.title
@@ -33,14 +49,6 @@ class Event(models.Model):
 
 
 
-class Teacher(models.Model):
-    name = models.CharField(max_length=100)
-    subject = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="teacher/")
-
-    def __str__(self):
-        return self.name
-    
 
 
 
@@ -60,3 +68,16 @@ class Grade(models.Model):
     def __str__(self):
         return f"{self.student.user.username} - {self.mark}"
     
+
+
+
+class Review(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    program = models.ForeignKey(Program,on_delete=models.CASCADE,related_name="reviews")
+    created_at = models.DateField(auto_now_add=True)
+    
+
+    def __str__(self):
+        return f"{self.user.username} - {self.program.title}"
+    
+      
