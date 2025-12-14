@@ -22,3 +22,9 @@ def hello_world(request):
 class ProgramViewSet(viewsets.ModelViewSet):
     queryset = Program.objects.all()
     serializer_class = ProgramSerializer
+
+
+
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
