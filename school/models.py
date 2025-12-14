@@ -51,4 +51,12 @@ class Student(models.Model):
     def __str__(self):
         return self.user.username
     
+
+
+class Grade(models.Model):
+    student = models.ForeignKey(Student,on_delete=models.CASCADE,related_name="grades")
+    mark = models.DecimalField(max_digits=5,decimal_places=2)
+
+    def __str__(self):
+        return f"{self.student.user.username} - {self.mark}"
     
