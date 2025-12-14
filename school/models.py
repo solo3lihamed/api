@@ -14,3 +14,19 @@ class Program(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=300)
+    description = models.TextField()
+    date = models.DateField()
+    time_from = models.TimeField()
+    time_to = models.TimeField()
+    location = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="events/")
+
+    def __str__(self):
+        return self.title
+    
