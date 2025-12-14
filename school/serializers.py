@@ -25,3 +25,8 @@ class EventSerializers(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class TestimonialSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Testimonial
+        fields = "__all__"
+        
