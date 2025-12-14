@@ -29,4 +29,16 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class Teacher(models.Model):
+    name = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="teacher/")
+
+    def __str__(self):
+        return self.name
+    
+
     
