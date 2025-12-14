@@ -14,8 +14,6 @@ from .models import Program,Event,Teacher,Testimonial,Student,Grade,Review
 
 
 # Create your views here.
-def hello_world(request):
-    return HttpResponse("hello hamed")
 
 
 

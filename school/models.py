@@ -83,7 +83,7 @@ class Review(models.Model):
       
 
 class Testimonial(models.Model):
-    client_name = models.CharField(max_length=100)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     
     image = models.ImageField(upload_to = "testimonial/")
     comment = models.TextField()
