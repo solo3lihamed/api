@@ -45,3 +45,11 @@ class StudentSerializer(serializers.ModelSerializer):
         model = Student
         fields = ["id","user","grade_level","grades"]
 
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(read_only=True)
+
+    class Meta:
+        model = Review
+        fields = "__all__"
