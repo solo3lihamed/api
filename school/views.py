@@ -5,10 +5,10 @@ from rest_framework import viewsets,permissions
 from .serializers import (
     ProgramSerializer,EventSerializer,TeatcherSerializer,
     TestimonialSerializer,StudentSerializer,GradeSerializer,
-    ReviewSerializer
+    ReviewSerializer,FeedbackUserSerializer
 ) 
 
-from .models import Program,Event,Teacher,Testimonial,Student,Grade,Review
+from .models import FeedbackUser,Program,Event,Teacher,Testimonial,Student,Grade,Review
 
 
 
@@ -31,6 +31,10 @@ class EventViewSet(viewsets.ModelViewSet):
 class TeacherViewSet(viewsets.ModelViewSet):
     queryset = Teacher.objects.all()
     serializer_class = TeatcherSerializer
+
+class FeedbackViewSet(viewsets.ModelViewSet):
+    queryset = FeedbackUser.objects.all()
+    serializer_class = FeedbackUserSerializer
 
 
 

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Program , Event , Teacher , Grade , Review,Testimonial,Student
+from .models import Program , Event , Teacher , Grade , Review,Testimonial,Student,FeedbackUser
 
 
 
@@ -27,6 +27,8 @@ class EventSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+
+
 class TestimonialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimonial
@@ -38,6 +40,11 @@ class TestimonialSerializer(serializers.ModelSerializer):
 class GradeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Grade
+        fields = "__all__"
+
+class FeedbackUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FeedbackUser
         fields = "__all__"
 
 

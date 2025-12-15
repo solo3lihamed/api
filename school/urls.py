@@ -14,7 +14,7 @@ router.register("testimonials",TestimonialViewSet)
 router.register("students",StudentViewSet)
 router.register("grades",GradeViewSet)
 router.register("review",ReviewViewSet)
-
+router.register("feedback",FeedbackViewSet)
 
 urlpatterns = [
    path('',include(router.urls))

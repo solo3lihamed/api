@@ -53,11 +53,13 @@ class Event(models.Model):
 
 
 class Student(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="students/")
     grade_level = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.user.username
+        return self.name
     
 
 
@@ -70,9 +72,17 @@ class Grade(models.Model):
     
 
 
+class FeedbackUser(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+
+    def __str__(self):
+        return self.name
+
+
 
 class Review(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(FeedbackUser,on_delete=models.CASCADE)
     program = models.ForeignKey(Program,on_delete=models.CASCADE,related_name="reviews")
     created_at = models.DateField(auto_now_add=True)
     
@@ -83,9 +93,9 @@ class Review(models.Model):
       
 
 class Testimonial(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
+    user = models.ForeignKey(FeedbackUser,on_delete=models.CASCADE,null=True,blank=True)
     
-    image = models.ImageField(upload_to = "testimonial/")
+    # image = models.ImageField(upload_to = "testimonial/")
     comment = models.TextField()
     rating = models.IntegerField(default=5)
     created_at = models.DateTimeField(auto_now_add=True)
