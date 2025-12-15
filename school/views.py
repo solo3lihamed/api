@@ -52,3 +52,11 @@ class GradeViewSet(viewsets.ModelViewSet):
     queryset=Grade.objects.all()
     serializer_class=GradeSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+
+
+class ReviewViewSet(viewsets.ModelViewSet):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+    permission_classes = [permissions.IsAuthenticated]
