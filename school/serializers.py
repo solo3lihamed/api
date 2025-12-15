@@ -12,7 +12,7 @@ class TeatcherSerializer(serializers.ModelSerializer):
 
 
 class ProgramSerializer(serializers.ModelSerializer):
-    teacher = TeatcherSerializer(read_only=True)
+    teacher = serializers.PrimaryKeyRelatedField(queryset=Teacher.objects.all())
 
     class Meta:
         model = Program
