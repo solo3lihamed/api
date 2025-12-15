@@ -30,8 +30,7 @@ class TestimonialSerializer(serializers.ModelSerializer):
         model = Testimonial
         fields = "__all__"
 
-        def perform_create(self,serializer):
-            serializer.save(user=self.reqest.user)
+        
 
 
 class GradeSerializer(serializers.ModelSerializer):
